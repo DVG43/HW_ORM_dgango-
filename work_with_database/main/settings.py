@@ -53,10 +53,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'netology_import_phones',
         'USER': 'py48galuta',
-        'PASSWORD': '1624',
+        'PASSWORD': 'luch1624',
     }
 }
 
+#'NAME': 'netology_import_phones',
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
