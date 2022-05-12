@@ -51,7 +51,7 @@ MIDDLEWARE = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'netology_import_phones',
+        'NAME': 'phones',
         'USER': 'py48galuta',
         'PASSWORD': 'luch1624',
     }
