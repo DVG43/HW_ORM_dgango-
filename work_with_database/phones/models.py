@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 
 class Phone(models.Model):
@@ -7,7 +8,7 @@ class Phone(models.Model):
     prise = models.FloatField()
     release_date = models.DateField()
     lte_exists = models.BooleanField()
-    slag = models.SlugField(max_length=150, db_column=name)
+    slag = models.SlugField(max_length=150, name = slugify(name))
     pass
 
 
