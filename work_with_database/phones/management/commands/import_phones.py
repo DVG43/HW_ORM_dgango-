@@ -14,12 +14,12 @@ class Command(BaseCommand):
 
         for phone in phones:
             # TODO: Добавьте сохранение модели
-            any_phone = Phone(
+            any_phone = Phone.obgects.update_or_create(
             name=phone['name'],
+            image=phone['image'],
             prise=phone['price'],
             relaese_data=phone['release_date'],
             lte_exist=phone['lte_exists']
             )
-            any_phone.save()
 
         pass
