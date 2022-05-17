@@ -7,7 +7,13 @@ def index(request):
 
 def show_catalog(request):
     template = 'catalog.html'
-    context = {}
+    context = {
+        'phone.name': ,
+        'phone.price',
+        'phone.image',
+        'phone.slug',
+
+    }
     return render(request, template, context)
 
 
