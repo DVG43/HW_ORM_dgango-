@@ -9,7 +9,7 @@ class Phone(models.Model):
     prise = models.IntegerField()
     release_date = models.DateField()
     lte_exists = models.BooleanField()
-    slag = models.SlugField()
+    slug = models.SlugField()
     pass
 
 #max_length=150, name=slugify(name)

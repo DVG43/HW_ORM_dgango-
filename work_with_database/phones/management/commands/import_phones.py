@@ -17,7 +17,7 @@ class Command(BaseCommand):
             any_phone = Phone.objects.update_or_create(
             name=phone['name'],
             image=phone['image'],
-            prise=phone['price'],
+            prise=phone['prise'],
             release_date=phone['release_date'],
             lte_exists=phone['lte_exists']
             )
