@@ -19,7 +19,8 @@ class Command(BaseCommand):
             image=phone['image'],
             prise=phone['prise'],
             release_date=phone['release_date'],
-            lte_exists=phone['lte_exists']
+            lte_exists=phone['lte_exists'],
+            slug=phone['name'],
             )
 
         pass
