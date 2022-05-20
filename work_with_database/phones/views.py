@@ -7,25 +7,27 @@ def index(request):
 
 
 def show_catalog(request):
-    phone_objects = Phone.objects.all()
-    template = 'catalog.html'
-    context = {
-        'phone.name': [f'{n.name}' for n in phone_objects],
-        'phone.prise': [f'{p.prise}' for p in phone_objects],
-        'phone.image': [f'{i.image}' for i in phone_objects],
-        'phone.slug': [f'{s.slug}' for s in phone_objects],
-    }
-    return render(request, template, context)
+    tipe_sort = request.GET.get("sort", 'name')
+    if tipe_sort == 'min_price':
+        phones = Phone.objects.order_by('price')
+        template = 'catalog.html'
+        context = {
+            'phones': phones,
+        }
+    else:
+        phones = Phone.objects.order_by('nаme')
+        template = 'catalog.html'
+        context = {
+            'phones': phones,
+        }
+
+    return render(request, template, context=context)
 
 
 def show_product(request, slug):
-    phone_object = Phone.objects.get(slug == slug)
+    phone = Phone.objects.get(slug == slug)
     template = 'product.html'
     context = {
-        'phone.name': f'{phone_object["name"]}',
-        'phone.prise': f'{phone_object["prise"]}',
-        'phone.image': f'{phone_object["image"]}',
-        'phone.release_date': f'{phone_object["release_date"]}',
-        'phone.lte_exists': f'{phone_object["lte_exists"]}',
+        'phone': phone,
     }
-    return render(request, template, context)
+    return render(request, template, context=context)

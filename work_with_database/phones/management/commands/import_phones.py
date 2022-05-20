@@ -2,7 +2,7 @@ import csv
 
 from django.core.management.base import BaseCommand
 from phones.models import Phone
-
+from django.utils.text import slugify
 
 class Command(BaseCommand):
     def add_arguments(self, parser):
@@ -13,14 +13,14 @@ class Command(BaseCommand):
             phones = list(csv.DictReader(file, delimiter=';'))
 
         for phone in phones:
-            # TODO: Добавьте сохранение модели
+        # TODO: Добавьте сохранение модели
             any_phone = Phone.objects.update_or_create(
-            name=phone['name'],
-            image=phone['image'],
-            prise=phone['prise'],
-            release_date=phone['release_date'],
-            lte_exists=phone['lte_exists'],
-            slug=phone['name'],
+                name=phone['name'],
+                image=phone['image'],
+                price=phone['price'],
+                release_date=phone['release_date'],
+                lte_exists=phone['lte_exists'],
+                slug=slugify(phone['name']),
             )
-
+            print(any_phone)
         pass
